@@ -11,9 +11,11 @@ void main() {
 
     await tester.pumpWidget(widgetUnderTest);
 
+    final welcomeTextFinder = find.text('Welcome');
     final loginButtonFinder = find.widgetWithText(FlatButton, 'Login');
     final registerButtonFinder = find.widgetWithText(FlatButton, 'Register');
 
+    expect(welcomeTextFinder, findsOneWidget);
     expect(loginButtonFinder, findsOneWidget);
     expect(registerButtonFinder, findsOneWidget);
   });
