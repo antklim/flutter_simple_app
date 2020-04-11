@@ -1,6 +1,8 @@
 # simple_app
 
-A new Flutter project.
+[![codecov](https://codecov.io/gh/antklim/flutter_simple_app/branch/master/graph/badge.svg)](https://codecov.io/gh/antklim/flutter_simple_app)
+
+Simple App to spike Flutter.
 
 ## Getting Started
 
