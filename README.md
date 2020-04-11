@@ -1,5 +1,6 @@
 # simple_app
 
+![Test](https://github.com/antklim/flutter_simple_app/workflows/Test/badge.svg)
 [![codecov](https://codecov.io/gh/antklim/flutter_simple_app/branch/master/graph/badge.svg)](https://codecov.io/gh/antklim/flutter_simple_app)
 
 Simple App to spike Flutter.
