@@ -15,14 +15,14 @@ class Auth extends StatelessWidget {
                 child: Text('Login'),
                 color: Colors.blue,
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/login');
                 },
               ),
               FlatButton(
                 child: Text('Register'),
                 color: Colors.orange,
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/register');
                 },
               ),
             ],

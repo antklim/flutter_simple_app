@@ -16,6 +16,11 @@ void main() {
     await tester.tap(loginButtonFinder);
     await tester.pumpAndSettle();
 
+    final loginButtonFinder2 = find.widgetWithText(RawMaterialButton, 'Login');
+
+    await tester.tap(loginButtonFinder2);
+    await tester.pumpAndSettle();
+
     expect(find.text('Welcome to Simple App'), findsOneWidget);
   });
 }

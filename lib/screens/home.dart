@@ -14,7 +14,14 @@ class Home extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        child: Text(message),
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(message),
+            ],
+          ),
+        ),
       ),
     );
   }
