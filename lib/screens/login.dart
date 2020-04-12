@@ -1,6 +1,27 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  void _onPressed(BuildContext context) {
+    // print('username: $_usernameController.text');
+    // print('password: $_passwordController.text');
+    Navigator.pushReplacementNamed(context, '/home');
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,24 +31,28 @@ class Login extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextFormField(
+              TextField(
                 decoration: InputDecoration(
                   hintText: 'Username',
                 ),
+                controller:  _usernameController,
               ),
-              TextFormField(
+              TextField(
                 decoration: InputDecoration(
                   hintText: 'Password',
                 ),
                 obscureText: true,
+                controller: _passwordController,
               ),
               SizedBox(height: 24),
               RawMaterialButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home');
+                  _onPressed(context);
                 },
                 fillColor: Colors.blue,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
                 child: Text('Login'),
               ),
             ],
