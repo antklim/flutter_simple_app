@@ -16,6 +16,9 @@ void main() {
     await tester.tap(loginButtonFinder);
     await tester.pumpAndSettle();
 
+    await tester.enterText(find.byType(TextField).first, 'u1');
+    await tester.enterText(find.byType(TextField).last, 'p1');
+
     final loginButtonFinder2 = find.widgetWithText(RawMaterialButton, 'Login');
 
     await tester.tap(loginButtonFinder2);

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app/models/stub_data.dart';
+import 'package:simple_app/models/user.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -8,11 +10,26 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _usersList = StubUsers.users;
 
-  void _onPressed(BuildContext context) {
-    // print('username: $_usernameController.text');
-    // print('password: $_passwordController.text');
-    Navigator.pushReplacementNamed(context, '/home');
+  Future<void> _onPressed(BuildContext context) async {
+    final user = User(
+        username: _usernameController.text, password: _passwordController.text);
+
+    final isRegistered = _usersList.contains(user);
+
+    if (isRegistered) {
+      Navigator.pushReplacementNamed(context, '/home');
+    } else {
+      return showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Rewind and remember'),
+              content: Text('User is not registered, please sign up'),
+            );
+          });
+    }
   }
 
   @override
@@ -35,7 +52,7 @@ class _LoginState extends State<Login> {
                 decoration: InputDecoration(
                   hintText: 'Username',
                 ),
-                controller:  _usernameController,
+                controller: _usernameController,
               ),
               TextField(
                 decoration: InputDecoration(

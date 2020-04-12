@@ -8,4 +8,8 @@ class User {
 
   final String username;
   final String password;
+
+  @override
+  bool operator ==(Object other) =>
+      other is User && other.username == username && other.password == password;
 }
