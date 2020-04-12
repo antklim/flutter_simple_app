@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app/screens/auth.dart';
 import 'package:simple_app/screens/home.dart';
-import 'package:simple_app/screens/pre-login.dart';
 
 void main() => runApp(SimpleApp());
 
@@ -15,8 +15,7 @@ class SimpleApp extends StatelessWidget {
       // home: Home(title: 'Simple App', message: 'Welcome to Simple App'),
       initialRoute: '/pre-login',
       routes: {
-        // '/': (context) => Splash(),
-        '/pre-login': (context) => PreLogin(),
+        '/pre-login': (context) => Auth(),
         '/home': (context) =>
             Home(title: 'Simple App', message: 'Welcome to Simple App'),
       },
