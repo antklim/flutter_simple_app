@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simple_app/models/stub_data.dart';
 import 'package:simple_app/models/user.dart';
+import 'package:simple_app/services/auth_service.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -10,16 +10,16 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _usersList = StubUsers.users;
 
   Future<void> _onPressed(BuildContext context) async {
-    final user = User(
-        username: _usernameController.text, password: _passwordController.text);
-
-    final isRegistered = _usersList.contains(user);
+    final username = _usernameController.text;
+    final password = _passwordController.text;
+    final isRegistered =
+        AuthService.login(username: username, password: password);
 
     if (isRegistered) {
-      Navigator.pushReplacementNamed(context, '/home');
+      final user = User(username: username, password: password);
+      Navigator.pushReplacementNamed(context, '/home', arguments: user);
     } else {
       return showDialog(
           context: context,
@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
             children: <Widget>[
               TextField(
                 decoration: InputDecoration(
-                  hintText: 'Username',
+                  hintText: 'Enter username or email',
                 ),
                 controller: _usernameController,
               ),
