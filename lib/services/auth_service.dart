@@ -7,8 +7,9 @@ final _registeredUsers = const {
 };
 
 class AuthService {
-  static bool login({@required String username, @required String password}) {
+  Future<bool> login({@required String username, @required String password}) async {
     final _userPassword = _registeredUsers[username];
+    await Future.delayed(Duration(seconds: 1));
     return _userPassword != null && _userPassword == password;
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@immutable
 class User {
   User({
     @required this.username,
@@ -8,11 +9,4 @@ class User {
 
   final String username;
   final String password;
-
-  @override
-  int get hashCode => username.length;
-
-  @override
-  bool operator ==(Object other) =>
-      other is User && other.username == username && other.password == password;
 }
